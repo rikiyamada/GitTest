@@ -318,7 +318,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 177.4, y: 515.7}
+  m_SizeDelta: {x: 2000, y: 1000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1090993888
 MonoBehaviour:
@@ -353,7 +353,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: GitHub Test
+  m_Text: "GitHub Test\n\u5C71\u7530\u30B3\u30DF\u30C3\u30C81"
 --- !u!222 &1090993889
 CanvasRenderer:
   m_ObjectHideFlags: 0
