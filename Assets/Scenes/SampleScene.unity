@@ -353,7 +353,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "GitHub Test\n\u5C71\u7530\u30B3\u30DF\u30C3\u30C82"
+  m_Text: "GitHub Test\n\u30AA\u30AB\u30CF\u30E9\u30B3\u30DF\u30C3\u30C8\uFF13"
 --- !u!222 &1090993889
 CanvasRenderer:
   m_ObjectHideFlags: 0
