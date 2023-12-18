@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 357490279}
   - component: {fileID: 357490283}
   m_Layer: 0
-  m_Name: Dynamic Sprite
+  m_Name: Floor2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -229,12 +229,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 357490278}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.08, y: 0, z: 0}
-  m_LocalScale: {x: 6.98, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.09174643, y: 3.4, z: 0}
+  m_LocalScale: {x: 0.12606104, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1928487718}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &357490283
 BoxCollider2D:
@@ -286,6 +286,53 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7362744711949667444, guid: 22db1e146977145b993bc63906c8dd04, type: 3}
   m_PrefabInstance: {fileID: 5094008809223665855}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
+=======
+--- !u!1 &1458585595
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1458585597}
+  - component: {fileID: 1458585596}
+  m_Layer: 0
+  m_Name: Python
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1458585596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458585595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e86a543e12d74925bb4b111e73faae2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1458585597
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458585595}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.17489, y: 3.4251559, z: -0.029962003}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+>>>>>>> Stashed changes
 --- !u!1 &1832205269
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,7 +395,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -405,7 +452,7 @@ GameObject:
   - component: {fileID: 1928487716}
   - component: {fileID: 1928487715}
   m_Layer: 0
-  m_Name: Static Sprite
+  m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -547,7 +594,12 @@ Transform:
   m_LocalPosition: {x: 0, y: -3.4, z: 0}
   m_LocalScale: {x: 55.37, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
+<<<<<<< Updated upstream
   m_Children: []
+=======
+  m_Children:
+  - {fileID: 357490282}
+>>>>>>> Stashed changes
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5094008809223665855
@@ -558,10 +610,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1849864352457046518, guid: 22db1e146977145b993bc63906c8dd04, type: 3}
+      propertyPath: jumpUp
+      value: 
+      objectReference: {fileID: 21300000, guid: e2976d09b53264ffbbb9210a1ae1dcc0, type: 3}
+    - target: {fileID: 1849864352457046518, guid: 22db1e146977145b993bc63906c8dd04, type: 3}
+      propertyPath: jumpDown
+      value: 
+      objectReference: {fileID: 21300000, guid: 598fb1767626f42e992bb9c2769d86ea, type: 3}
     - target: {fileID: 3668821286867880809, guid: 22db1e146977145b993bc63906c8dd04, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3964273130865956194, guid: 22db1e146977145b993bc63906c8dd04, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 598fb1767626f42e992bb9c2769d86ea, type: 3}
     - target: {fileID: 7362744711949667444, guid: 22db1e146977145b993bc63906c8dd04, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -614,4 +678,8 @@ SceneRoots:
   - {fileID: 1832205272}
   - {fileID: 1928487718}
   - {fileID: 5094008809223665855}
+<<<<<<< Updated upstream
   - {fileID: 357490282}
+=======
+  - {fileID: 1458585597}
+>>>>>>> Stashed changes

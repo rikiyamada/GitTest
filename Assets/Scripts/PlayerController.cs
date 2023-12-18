@@ -7,31 +7,26 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
 
     [SerializeField]
-    private float speed = 5f;
+    private float jumpForce ,maxJumpForce = 10f; // ジャンプの上限
 
     [SerializeField]
-    private float maxSpeed = 5f;
-
-    [SerializeField]
-    private float jumpForceMultiplier = 15f; // ジャンプ力の倍率
-
-    [SerializeField]
-    private float maxJumpForce = 10f; // ジャンプの上限
-
-    private float jumpStartTime; // ジャンプボタンを押し始めた時間
+    private Sprite jumpUp, jumpDown;
 
     private Animator animator;
 
-    // Start is called before the first frame update
+    Python python;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        python = FindAnyObjectByType<Python>();
     }
 
     // Update is called once per frame
     void Update()
     {
+<<<<<<< Updated upstream
         // 移動
         if (Input.GetKey(KeyCode.RightArrow))
         {
@@ -62,14 +57,52 @@ public class PlayerController : MonoBehaviour
         }
         // ジャンプ
         if (Input.GetKeyDown(KeyCode.Space))
+=======
+        Jump();
+        JumpSprite();
+    }
+
+    private void Jump()
+    {
+        if (!canJump()) return;
+        if (python.messages.TryDequeue(out string message) && message != null)
+>>>>>>> Stashed changes
         {
-            jumpStartTime = Time.time;
+            Debug.Log("Received from Python: " + message);
+            // ここでmessageを使用した処理を行います
         }
-        else if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.RightArrow))
         {
-            float jumpDuration = Time.time - jumpStartTime; // キーを押し続けた時間を計算
-            float jumpForce = Mathf.Clamp(jumpDuration * jumpForceMultiplier, 0, maxJumpForce);
-            rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(5, 9), ForceMode2D.Impulse);
+            animator.enabled = false;
+            transform.localScale = new Vector2(5, 5);
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftArrow))
+        {
+            rb.AddForce(new Vector2(-5, 9), ForceMode2D.Impulse);
+            animator.enabled = false;
+            transform.localScale = new Vector2(-5, 5);
+        }
+    }
+
+    private bool canJump()
+    {
+        if (rb.velocity.y > 0.05f || rb.velocity.y < -0.05f) return false;
+        animator.enabled = true;
+        return true;
+    }
+
+    private void JumpSprite()
+    {
+        if (rb.velocity.y > 0.05)
+        {
+            animator.enabled = false;
+            GetComponent<SpriteRenderer>().sprite = jumpUp;
+        }
+        if (rb.velocity.y < -0.05)
+        {
+            animator.enabled = false;
+            GetComponent<SpriteRenderer>().sprite = jumpDown;
         }
     }
 }
