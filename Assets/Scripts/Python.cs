@@ -1,11 +1,13 @@
 using System.Collections.Concurrent;
 using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Python : MonoBehaviour
 {
     private Process pythonProcess;
     public ConcurrentQueue<string> messages = new ConcurrentQueue<string>();
+    
 
     void Start()
     {
@@ -15,8 +17,8 @@ public class Python : MonoBehaviour
     void StartPythonProcess()
     {
         pythonProcess = new Process();
-        pythonProcess.StartInfo.FileName = "python3";
-        pythonProcess.StartInfo.Arguments = "/Users/yamadariki/code/unity_test.py";   //ここにファイルのパスを設定
+        pythonProcess.StartInfo.FileName = "python";
+        pythonProcess.StartInfo.Arguments = @"C:\Users\asana\OneDrive\デスクトップ\Unity\GitTest\Assets\Scripts/unity_test.py";
         pythonProcess.StartInfo.UseShellExecute = false;
         pythonProcess.StartInfo.RedirectStandardInput = true;
         pythonProcess.StartInfo.RedirectStandardOutput = true;
