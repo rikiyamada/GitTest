@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
 
     [SerializeField]
-    private float jumpForce ,maxJumpForce = 10f; // ジャンプの上限
+    private float jumpForce, maxJumpForce = 10f; // ジャンプの上限
 
     [SerializeField]
     private Sprite jumpUp, jumpDown;
@@ -26,38 +26,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-<<<<<<< Updated upstream
-        // 移動
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            rb.AddForce(new Vector2(speed, 0));
-            transform.localScale = new Vector3(5, transform.localScale.y, transform.localScale.z);
-            animator.SetBool("isRun", true);
-        }
-        else if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            rb.AddForce(new Vector2(-speed, 0));
-            transform.localScale = new Vector3(-5, transform.localScale.y, transform.localScale.z);
-            animator.SetBool("isRun", true);
-        }
-
-        // 速度の上限を制限
-        if (rb.velocity.x > maxSpeed)
-        {
-            rb.velocity = new Vector2(maxSpeed, rb.velocity.y);
-        }
-        else if (rb.velocity.x < -maxSpeed)
-        {
-            rb.velocity = new Vector2(-maxSpeed, rb.velocity.y);
-        }
-
-        if(rb.velocity == Vector2.zero)
-        {
-            animator.SetBool("isRun", false);
-        }
-        // ジャンプ
-        if (Input.GetKeyDown(KeyCode.Space))
-=======
         Jump();
         JumpSprite();
     }
@@ -66,7 +34,6 @@ public class PlayerController : MonoBehaviour
     {
         if (!canJump()) return;
         if (python.messages.TryDequeue(out string message) && message != null)
->>>>>>> Stashed changes
         {
             Debug.Log("Received from Python: " + message);
             // ここでmessageを使用した処理を行います
