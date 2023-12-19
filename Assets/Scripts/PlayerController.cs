@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private Sprite jumpUp, jumpDown;
+
+    [SerializeField]
+    private Text text;
 
     private Animator animator;
 
@@ -35,8 +39,17 @@ public class PlayerController : MonoBehaviour
         if (!canJump()) return;
         if (python.messages.TryDequeue(out string message) && message != null)
         {
-            Debug.Log("Received from Python: " + message);
+            Debug.Log("Pythonからの受信: " + message);
             // ここでmessageを使用した処理を行います
+            text.text = message;
+            if(message == "右")
+            {
+                RightJump();
+            }
+            else if(message == "左")
+            {
+                LeftJump();
+            }
         }
         if (Input.GetKeyUp(KeyCode.RightArrow))
         {
@@ -50,6 +63,20 @@ public class PlayerController : MonoBehaviour
             animator.enabled = false;
             transform.localScale = new Vector2(-5, 5);
         }
+    }
+
+    private void RightJump()
+    {
+            rb.AddForce(new Vector2(5, 9), ForceMode2D.Impulse);
+            animator.enabled = false;
+            transform.localScale = new Vector2(5, 5);
+    }
+
+    private void LeftJump()
+    {
+            rb.AddForce(new Vector2(-5, 9), ForceMode2D.Impulse);
+            animator.enabled = false;
+            transform.localScale = new Vector2(-5, 5);
     }
 
     private bool canJump()
