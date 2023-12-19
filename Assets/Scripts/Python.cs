@@ -17,8 +17,8 @@ public class Python : MonoBehaviour
     void StartPythonProcess()
     {
         pythonProcess = new Process();
-        pythonProcess.StartInfo.FileName = "python";
-        pythonProcess.StartInfo.Arguments = @"C:\Users\asana\OneDrive\デスクトップ\Unity\GitTest\Assets\Scripts/unity_test.py";
+        pythonProcess.StartInfo.FileName = "python3";
+        pythonProcess.StartInfo.Arguments = "/Users/yamadariki/unity/GitTest/Assets/Scripts/unity_test.py";
         pythonProcess.StartInfo.UseShellExecute = false;
         pythonProcess.StartInfo.RedirectStandardInput = true;
         pythonProcess.StartInfo.RedirectStandardOutput = true;
