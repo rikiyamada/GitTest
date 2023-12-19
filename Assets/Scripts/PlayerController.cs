@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
 
     [SerializeField]
-    private float jumpForce, maxJumpForce = 10f; // ジャンプの上限
+    private Vector2 jumpForce = new Vector2(5,10);
 
     [SerializeField]
     private Sprite jumpUp, jumpDown;
@@ -53,28 +53,24 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.RightArrow))
         {
-            rb.AddForce(new Vector2(5, 9), ForceMode2D.Impulse);
-            animator.enabled = false;
-            transform.localScale = new Vector2(5, 5);
+            RightJump();
         }
         else if (Input.GetKeyUp(KeyCode.LeftArrow))
         {
-            rb.AddForce(new Vector2(-5, 9), ForceMode2D.Impulse);
-            animator.enabled = false;
-            transform.localScale = new Vector2(-5, 5);
+            LeftJump();
         }
     }
 
     private void RightJump()
     {
-            rb.AddForce(new Vector2(5, 9), ForceMode2D.Impulse);
+            rb.AddForce(jumpForce, ForceMode2D.Impulse);
             animator.enabled = false;
             transform.localScale = new Vector2(5, 5);
     }
 
     private void LeftJump()
     {
-            rb.AddForce(new Vector2(-5, 9), ForceMode2D.Impulse);
+            rb.AddForce(jumpForce, ForceMode2D.Impulse);
             animator.enabled = false;
             transform.localScale = new Vector2(-5, 5);
     }
